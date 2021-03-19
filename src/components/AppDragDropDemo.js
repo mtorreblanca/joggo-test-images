@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
 import getPhotos from '../services/getPhotos';
-import photos from './photos.json';
 import neglectedIcon from '../assets/icons/neglected.svg';
 import acceptedIcon from '../assets/icons/accept.svg';
 
 const DragAndDropContainer = () => {
-    const [initial, setInitial] = useState(photos);
+    const [initial, setInitial] = useState([]);
     const [accepted, setAccepted] = useState([]);
     const [neglected, setNeglected] = useState([]);
 
