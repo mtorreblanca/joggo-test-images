@@ -1,11 +1,18 @@
-import { useState } from 'react';
-
-import photos from './photos.json';
+import { useState, useEffect } from 'react';
+import getPhotos from '../services/getPhotos';
 
 const DragAndDropContainer = () => {
-    const [initial, setInitial] = useState(photos);
+    const [initial, setInitial] = useState([]);
     const [accepted, setAccepted] = useState([]);
     const [neglected, setNeglected] = useState([]);
+
+    useEffect(() => {
+        const fetchPhotos = async () => {
+            const photos = await getPhotos();
+            setInitial(photos);
+        }
+        fetchPhotos();
+    }, []);
 
     const onDragStart = (ev, index, origin) => {
         ev.dataTransfer.setData("index", index);
@@ -71,6 +78,7 @@ const DragAndDropContainer = () => {
                 onDragOver={(e) => onDragOver(e)}
                 onDrop={(e) => { onDrop(e, "initial") }}
             >
+                {/* <button type="button" onClick={() => handler()}>hola</button> */}
                 {initial.map((image, index) =>
                     <img key={image.id}
                         onDragStart={(e) => onDragStart(e, index, 'initial')}
