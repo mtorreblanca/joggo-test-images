@@ -1,7 +1,17 @@
-# Getting Started with Create React App
+# Joggo Test Images
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## URL:
+http://joggo-react-test.s3-website.us-east-2.amazonaws.com/
+
+### Pre-requisites
+- A Unsplash cliend-id token is needed as a .env variable. (It's avialable after the unsplash developer registration). 
+- After getting the token, run
+```
+    cp env.example .env
+```
+- And paste the token in the REACT_APP_UNSPLASH_ACCESS=token variable
 ## Available Scripts
 
 In the project directory, you can run:
